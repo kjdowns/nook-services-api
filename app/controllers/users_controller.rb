@@ -6,7 +6,14 @@ class UsersController < ApplicationController
     end
 
     def create
-        User.create(username: params[:username], password: params[:password])
+        user = User.create(username: params[:username], password: params[:password])
+        params[:bugs].each do |bug|
+            user.bugs.create(name: bug[:name], location: bug[:location], time: bug[:time], months_north: bug[:northMonths].join(", "), months_south: bug[:southMonths].join(", "))
+        end
+        params[:fish].each do |fish|
+            user.fish.create(name: fish[:name], location: fish[:location], time: fish[:time], months_north: fish[:northMonths].join(", "), months_south: fish[:southMonths].join(", "))
+        end
+        render json: {username: user.username, bugs: user.bugs, fish: user.fish}
     end
 
 end
