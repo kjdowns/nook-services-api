@@ -5,4 +5,8 @@ class UsersController < ApplicationController
         render json: {username: user.username, bugs: user.bugs, fish: user.fish}
     end
 
+    def create
+        User.create(username: params[:username], password: params[:password])
+    end
+
 end
