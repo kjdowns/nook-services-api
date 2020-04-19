@@ -1,2 +1,0 @@
-class IslandController < ApplicationController
-end
