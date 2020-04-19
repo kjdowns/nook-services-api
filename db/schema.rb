@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_19_022429) do
+ActiveRecord::Schema.define(version: 2020_04_19_213154) do
 
   create_table "bugs", force: :cascade do |t|
     t.string "name"
@@ -36,6 +36,15 @@ ActiveRecord::Schema.define(version: 2020_04_19_022429) do
     t.string "months_north"
     t.string "months_south"
     t.string "url"
+  end
+
+  create_table "islands", force: :cascade do |t|
+    t.string "name"
+    t.string "rate"
+    t.string "description"
+    t.string "url"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "users", force: :cascade do |t|

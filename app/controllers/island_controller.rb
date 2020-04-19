@@ -1,0 +1,2 @@
+class IslandController < ApplicationController
+end
