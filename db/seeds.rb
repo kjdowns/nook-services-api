@@ -123,5 +123,5 @@ island_data = [
 ]
 
 island_data.each do |island|
-    Island.create(name: island.name, rate: island.rate, description: island.description, url: island.url)
+    Island.create(name: island[:name], rate: island[:rate], description: island[:description], url: island[:url])
 end
