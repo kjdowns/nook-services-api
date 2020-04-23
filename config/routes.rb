@@ -3,5 +3,8 @@ Rails.application.routes.draw do
   resources :bugs, only: [:update]
   resources :users, only: [:show, :create]
   resources :islands, only: [:index]
+  
+  post '/login' => 'sessions#create'
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
