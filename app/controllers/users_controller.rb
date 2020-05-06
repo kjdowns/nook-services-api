@@ -2,7 +2,7 @@ class UsersController < ApplicationController
 
     def show
         user = User.find_by(username: params[:id])
-        render json: {username: user.username, bugs: user.bugs, fish: user.fish}
+        render json: {username: user.username, bugs: user.bugs.order(:id), fish: user.fish.order(:id)}
     end
 
     def create
@@ -15,7 +15,7 @@ class UsersController < ApplicationController
                 user.fish.create(name: fish[:name], location: fish[:location], time: fish[:time], months_north: fish[:northMonths].join(", "), months_south: fish[:southMonths].join(", "), url: fish[:url])
             end
         end
-        render json: {username: user.username, bugs: user.bugs, fish: user.fish}
+        render json: {username: user.username, bugs: user.bugs.order(:id), fish: user.fish.order(:id)}
     end
 
 end

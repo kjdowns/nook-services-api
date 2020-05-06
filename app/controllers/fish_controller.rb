@@ -4,7 +4,7 @@ class FishController < ApplicationController
         fish = Fish.find(params[:id])
         user = User.find(fish.user_id)
         Fish.update(params[:id], checked: params[:checked])
-        render json: {username: user.username, bugs: user.bugs, fish: user.fish}
+        render json: {username: user.username, bugs: user.bugs.order(:id), fish: user.fish.order(:id)}
     end
 
 end
